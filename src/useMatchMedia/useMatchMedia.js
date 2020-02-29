@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const Hook = mediaQueryString => {
+const useMatchMedia = mediaQueryString => {
 	const MediaQueryList = window.matchMedia(mediaQueryString)
 	const [match, setMatch] = useState(MediaQueryList.matches)
 
@@ -15,4 +15,4 @@ const Hook = mediaQueryString => {
 	return match
 }
 
-export default Hook
+export default useMatchMedia
