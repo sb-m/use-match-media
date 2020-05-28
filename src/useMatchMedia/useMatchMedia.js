@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react'
 
 const useMatchMedia = mediaQueryString => {
-	const [match, setMatch] = useState()
+	const [ match, setMatch ] = useState()
+
+	const handleMatchMediaEvent = useCallback(mediaQueryList => {
+		setMatch(mediaQueryList.matches)
+	}, [])
 
 	useEffect(() => {
-		const handleMatchMedia = mediaQueryList => setMatch(mediaQueryList.matches)
-
 		const mediaQueryList = window.matchMedia(mediaQueryString)
-		
-		mediaQueryList.addListener(handleMatchMedia)
-		handleMatchMedia(mediaQueryList)
-
-		return () => {
-			mediaQueryList.removeListener(handleMatchMedia)
-		}
+		mediaQueryList.addListener(handleMatchMediaEvent)
+		handleMatchMediaEvent(mediaQueryList)
+		return () => mediaQueryList.removeListener(handleMatchMediaEvent)
 	}, [mediaQueryString])
 
 	return match
