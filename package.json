@@ -1,6 +1,6 @@
 {
   "name": "@strawberrymilk/use-match-media",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A React hook for using JavaScript's matchMedia API",
   "main": "dist/main.js",
   "private": false,
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/strawberrymilkstudio/use-match-media#readme",
   "devDependencies": {
     "react": "^16.13.1",
-    "webpack": "^4.42.1",
+    "webpack": "^4.43.0",
     "webpack-cli": "^3.3.10"
   },
   "peerDependencies": {
